@@ -40,35 +40,43 @@
 
 /* Dark Theme Variables */
 body.dark-theme {
-  --bg-color: #030712; /* Sleek slate-obsidian black */
-  --surface-color: rgba(17, 24, 39, 0.7); /* Deep dark container background */
-  --border-color: rgba(99, 102, 241, 0.18); /* Indigo tinted borders */
-  --border-focus: #a5b4fc; /* indigo-300 */
+  --bg-color: #14110f; /* Premium warm spiced charcoal / dark espresso */
+  --surface-color: rgba(28, 23, 20, 0.7); /* Translucent warm spiced chocolate */
+  --border-color: rgba(249, 115, 22, 0.18); /* Translucent saffron/orange border */
+  --border-focus: #fdba74; /* warm orange-300 */
   
-  --primary-color: #818cf8; /* Glowing violet-indigo */
-  --primary-hover: #6366f1;
+  --primary-color: #f97316; /* Vibrant warm saffron orange */
+  --primary-hover: #ea580c;
   
-  --text-main: #f9fafb; /* pure white-gray */
-  --text-muted: #94a3b8; /* clean readable gray-slate */
+  --text-main: #fdfcfb; /* Creamy warm off-white */
+  --text-muted: #bcaaa4; /* Terracotta-tinted soft brown-gray */
   
   --success-color: #34d399; /* neon green */
   --warning-color: #fbbf24; /* neon yellow */
   --danger-color: #f87171; /* neon red */
 
-  --input-bg: rgba(9, 12, 22, 0.6); /* deeper input field background */
-  --input-border: rgba(99, 102, 241, 0.2);
-  --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+  --input-bg: rgba(18, 14, 12, 0.6); /* deeper warm input background */
+  --input-border: rgba(249, 115, 22, 0.2);
+  --card-shadow: 0 10px 40px -10px rgba(10, 5, 2, 0.7);
   --border-style: 1px solid var(--border-color);
-  --glow-opacity: 0.65; /* more visible glowing background accent */
+  --glow-opacity: 0.7;
   
-  --stat-icon-navy: rgba(129, 140, 248, 0.15);
+  --stat-icon-navy: rgba(249, 115, 22, 0.15);
   --stat-icon-amber: rgba(251, 191, 36, 0.15);
   --stat-icon-green: rgba(52, 211, 153, 0.15);
   
-  --scheme-card-bg: rgba(15, 23, 42, 0.4);
-  --chat-msg-bg: rgba(9, 12, 22, 0.5);
+  --scheme-card-bg: rgba(28, 23, 20, 0.4);
+  --chat-msg-bg: rgba(18, 14, 12, 0.5);
   
   --backdrop-blur: blur(16px);
+}
+
+/* Warm Ambient Glows */
+body.dark-theme .glow-1 {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.22) 0%, rgba(249, 115, 22, 0) 70%);
+}
+body.dark-theme .glow-2 {
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, rgba(217, 119, 6, 0) 70%);
 }
 
 /* Base resets & layout */
