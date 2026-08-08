@@ -84,7 +84,7 @@ async function start() {
     });
     console.log(`\n🚀 NagrikSetu Backend running on: http://${config.HOST}:${config.PORT}\n`);
   } catch (err) {
-    fastify.log.error("Fatal boot failure:", err);
+    fastify.log.error(err instanceof Error ? err : new Error(String(err)), "Fatal boot failure");
     process.exit(1);
   }
 }

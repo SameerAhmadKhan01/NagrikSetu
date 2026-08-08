@@ -55,7 +55,7 @@ export async function adminRoutes(fastify: FastifyInstance) {
       });
     } catch (error: any) {
       if (error instanceof z.ZodError) {
-        return reply.status(400).send({ success: false, error: error.errors });
+        return reply.status(400).send({ success: false, error: error.issues });
       }
       return reply.status(500).send({ success: false, error: error.message || error });
     }
@@ -96,7 +96,7 @@ export async function adminRoutes(fastify: FastifyInstance) {
       };
     } catch (error: any) {
       if (error instanceof z.ZodError) {
-        return reply.status(400).send({ success: false, error: error.errors });
+        return reply.status(400).send({ success: false, error: error.issues });
       }
       return reply.status(500).send({ success: false, error: error.message || error });
     }
@@ -179,7 +179,7 @@ export async function adminRoutes(fastify: FastifyInstance) {
       };
     } catch (error: any) {
       if (error instanceof z.ZodError) {
-        return reply.status(400).send({ success: false, error: error.errors });
+        return reply.status(400).send({ success: false, error: error.issues });
       }
       return reply.status(500).send({ success: false, error: error.message || error });
     }

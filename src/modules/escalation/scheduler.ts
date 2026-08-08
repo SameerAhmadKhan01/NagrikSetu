@@ -1,4 +1,4 @@
-import cron from "node-cron";
+import cron, { ScheduledTask } from "node-cron";
 import { prisma } from "../../db.js";
 import { predictEscalationRisk } from "./model.js";
 
@@ -67,7 +67,7 @@ export async function runEscalationCheck() {
   }
 }
 
-let escalationJob: cron.ScheduledTask | null = null;
+let escalationJob: ScheduledTask | null = null;
 
 /**
  * Starts the background cron check.
