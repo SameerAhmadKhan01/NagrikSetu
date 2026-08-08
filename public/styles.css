@@ -1282,28 +1282,34 @@ textarea {
 
 @media (max-width: 768px) {
   .app-header {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    padding: 0.75rem 1rem !important;
+    gap: 0.75rem !important;
     height: auto !important;
-    flex-direction: column !important;
-    padding: 1.25rem 1rem !important;
-    gap: 1.25rem !important;
     align-items: center !important;
-    text-align: center !important;
   }
 
-  .logo-titles {
-    align-items: center;
+  .header-logo {
+    grid-column: 1 / 2;
+    justify-content: flex-start !important;
   }
 
   .header-actions {
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 1rem !important;
+    grid-column: 2 / 3;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    width: auto !important;
   }
 
   .nav-tabs {
+    grid-column: 1 / 3;
     width: 100% !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
+    display: flex !important;
+    justify-content: stretch !important;
+    margin-top: 0.25rem;
   }
 
   .nav-tab {
@@ -1314,21 +1320,33 @@ textarea {
   }
 
   .app-content {
-    padding: 1rem 0.75rem !important;
+    padding: 0.75rem 0.5rem !important;
   }
 
+  /* Horizontal swipeable tab bar on mobile */
   .sub-tab-container {
-    flex-direction: column !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
     gap: 0.25rem !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+
+  .sub-tab-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Safari and Chrome */
   }
 
   .sub-tab {
-    width: 100% !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
     justify-content: center !important;
   }
 
   .grid-form {
     grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
   }
 
   .form-group.full-width {
@@ -1337,6 +1355,7 @@ textarea {
 
   .btn {
     width: 100% !important;
+    justify-content: center !important;
   }
 
   .gov-card {
@@ -1351,6 +1370,7 @@ textarea {
     flex-direction: column !important;
     width: 100% !important;
     margin-top: 0.5rem;
+    gap: 0.5rem !important;
   }
   
   .table-filters select {
@@ -1363,6 +1383,16 @@ textarea {
 }
 
 @media (max-width: 480px) {
+  .logo-titles .logo-subtext {
+    display: none !important; /* Hide long subtext on narrow screens to prevent wrapping */
+  }
+
+  .scheme-card-top {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: flex-start !important;
+  }
+
   .chatbot-box {
     width: calc(100vw - 1.5rem) !important;
     height: 400px !important;
