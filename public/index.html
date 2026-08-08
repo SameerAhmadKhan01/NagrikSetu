@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NagrikSetu (नागरिकसेतु) - Welfare Scheme Discovery & Civic Reporting</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Glow Elements -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <!-- Main Navigation -->
+  <header class="app-header">
+    <div class="header-logo">
+      <i data-lucide="shield-check" class="logo-icon"></i>
+      <span class="logo-text">Nagrik<span>Setu</span></span>
+      <span class="logo-subtext">नागरिकसेतु</span>
+    </div>
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="citizen-portal">
+        <i data-lucide="user"></i> Citizen Portal
+      </button>
+      <button class="nav-tab" data-tab="admin-portal" id="admin-nav-btn">
+        <i data-lucide="layout-dashboard"></i> Admin Dashboard
+      </button>
+    </nav>
+  </header>
+
+  <main class="app-content">
+    
+    <!-- CITIZEN PORTAL SECTION -->
+    <section id="citizen-portal" class="tab-panel active">
+      <div class="portal-grid">
+        
+        <!-- Left: Forms & Discovery -->
+        <div class="portal-left">
+          
+          <!-- Tab selector for Citizen activities -->
+          <div class="sub-tab-container">
+            <button class="sub-tab active" data-subtab="scheme-discover-tab">
+              <i data-lucide="sparkles"></i> Match Schemes
+            </button>
+            <button class="sub-tab" data-subtab="grievance-report-tab">
+              <i data-lucide="file-text"></i> File Grievance
+            </button>
+            <button class="sub-tab" data-subtab="grievance-track-tab">
+              <i data-lucide="search"></i> Track Grievance
+            </button>
+          </div>
+
+          <!-- 1. Scheme Discovery Panel -->
+          <div id="scheme-discover-tab" class="sub-tab-panel active">
+            <div class="glass-card">
+              <div class="card-header">
+                <h2>Welfare Scheme Discovery</h2>
+                <p>Provide profile metrics and describe your situation to retrieve matching schemes.</p>
+              </div>
+              <form id="scheme-form" class="grid-form">
+                <div class="form-group">
+                  <label for="scheme-age">Age (Years)</label>
+                  <input type="number" id="scheme-age" placeholder="e.g. 35" min="0" max="120">
+                </div>
+                <div class="form-group">
+                  <label for="scheme-income">Annual Income (INR)</label>
+                  <input type="number" id="scheme-income" placeholder="e.g. 150000" min="0">
+                </div>
+                <div class="form-group">
+                  <label for="scheme-gender">Gender</label>
+                  <select id="scheme-gender">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="scheme-region">State/Region</label>
+                  <select id="scheme-region">
+                    <option value="">Select Region</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  </select>
+                </div>
+                <div class="form-group full-width">
+                  <label for="scheme-situation">Describe Your Situation / Needs</label>
+                  <textarea id="scheme-situation" rows="3" placeholder="e.g., I am a small-scale farmer looking for crop insurance and irrigation support..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">
+                  <i data-lucide="wand-2"></i> Match Schemes
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- 2. Grievance Reporting Panel -->
+          <div id="grievance-report-tab" class="sub-tab-panel">
+            <div class="glass-card">
+              <div class="card-header">
+                <h2>File Anonymous Grievance</h2>
+                <p>Report municipal issues securely. Your privacy is 100% protected.</p>
+              </div>
+              <form id="grievance-form" class="grid-form" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="grievance-category">Issue Category</label>
+                  <select id="grievance-category" required>
+                    <option value="">Select Category</option>
+                    <option value="roads">Roads & Potholes</option>
+                    <option value="sanitation">Sanitation & Garbage</option>
+                    <option value="water">Water Supply</option>
+                    <option value="streetlights">Streetlights</option>
+                    <option value="drainage">Drainage Clogging</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="grievance-region">Region / Ward</label>
+                  <select id="grievance-region" required>
+                    <option value="">Select Region</option>
+                    <option value="Zone-A">Zone-A</option>
+                    <option value="Zone-B">Zone-B</option>
+                    <option value="Ward-12">Ward-12</option>
+                    <option value="Ward-25">Ward-25</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Location Coordinates</label>
+                  <div class="coordinate-inputs">
+                    <input type="number" id="grievance-lat" step="any" placeholder="Latitude" required>
+                    <input type="number" id="grievance-lng" step="any" placeholder="Longitude" required>
+                  </div>
+                  <button type="button" id="geo-btn" class="btn btn-secondary btn-sm">
+                    <i data-lucide="map-pin"></i> Fetch Geolocation
+                  </button>
+                </div>
+                <div class="form-group">
+                  <label for="grievance-media">Attach Proof (Photo / Video)</label>
+                  <input type="file" id="grievance-media" accept="image/*,video/*">
+                  <span class="file-help">Max file size: 10MB</span>
+                </div>
+                <div class="form-group full-width">
+                  <label for="grievance-desc">Description of the Issue</label>
+                  <textarea id="grievance-desc" rows="3" placeholder="Provide clear details about the civic issue..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">
+                  <i data-lucide="send"></i> File Grievance Report
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- 3. Grievance Tracking Panel -->
+          <div id="grievance-track-tab" class="sub-tab-panel">
+            <div class="glass-card">
+              <div class="card-header">
+                <h2>Track Grievance Status</h2>
+                <p>Enter your anonymous tracking code to view the status, SLA countdown, and resolution details.</p>
+              </div>
+              <div class="tracking-search">
+                <input type="text" id="track-id-input" placeholder="e.g. NS-1294-XP" style="text-transform: uppercase;">
+                <button id="track-btn" class="btn btn-primary">
+                  <i data-lucide="search"></i> Track
+                </button>
+              </div>
+              
+              <!-- Timeline Container (Hidden initially) -->
+              <div id="tracking-result" class="tracking-result hidden">
+                <div class="result-summary">
+                  <span class="tracking-code-badge" id="res-code">NS-XXXX-XX</span>
+                  <div class="sla-counter" id="res-sla-box">
+                    <i data-lucide="clock"></i> <span id="res-sla-text">48h SLA</span>
+                  </div>
+                </div>
+                
+                <div class="timeline">
+                  <div class="timeline-item" id="step-submitted">
+                    <div class="timeline-icon"><i data-lucide="file-plus"></i></div>
+                    <div class="timeline-content">
+                      <h3>Submitted</h3>
+                      <p>Grievance logged successfully into NagrikSetu.</p>
+                      <span class="timeline-date" id="date-submitted">-</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item" id="step-review">
+                    <div class="timeline-icon"><i data-lucide="eye"></i></div>
+                    <div class="timeline-content">
+                      <h3>Under Review</h3>
+                      <p>Municipal team is reviewing the grievance details.</p>
+                      <span class="timeline-date" id="date-review">-</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item" id="step-escalated">
+                    <div class="timeline-icon"><i data-lucide="alert-triangle"></i></div>
+                    <div class="timeline-content">
+                      <h3>Escalated</h3>
+                      <p>SLA breached. Escalated to senior authority via ML Priority Scheduler.</p>
+                      <span class="timeline-date" id="date-escalated">-</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item" id="step-resolved">
+                    <div class="timeline-icon"><i data-lucide="check-circle2"></i></div>
+                    <div class="timeline-content">
+                      <h3>Resolved</h3>
+                      <p>Grievance has been resolved. Action details below.</p>
+                      <span class="timeline-date" id="date-resolved">-</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Results Panel -->
+        <div class="portal-right">
+          <div class="glass-card full-height flex-column">
+            <div class="card-header">
+              <h2>Discovery Matches</h2>
+            </div>
+            <div class="results-container flex-grow" id="scheme-results">
+              <div class="empty-state">
+                <i data-lucide="sparkles" class="empty-icon"></i>
+                <p>Fill out the profile match form and press "Match Schemes" to see personalized welfare options here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ADMIN PORTAL SECTION -->
+    <section id="admin-portal" class="tab-panel">
+      
+      <!-- Login Panel -->
+      <div id="admin-login-box" class="admin-login-wrapper">
+        <div class="glass-card login-card">
+          <div class="card-header text-center">
+            <i data-lucide="lock" class="login-header-icon"></i>
+            <h2>Municipal Login</h2>
+            <p>Access the NagrikSetu Officer Dashboard</p>
+          </div>
+          <form id="admin-login-form">
+            <div class="form-group">
+              <label for="login-username">Username</label>
+              <input type="text" id="login-username" required placeholder="e.g. admin">
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn btn-primary full-width">
+              <i data-lucide="log-in"></i> Sign In
+            </button>
+            <div id="login-error" class="login-error hidden"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Dashboard View (Hidden initially) -->
+      <div id="admin-dashboard-view" class="hidden">
+        
+        <!-- Dashboard Top Stats Grid -->
+        <div class="dashboard-stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon bg-indigo"><i data-lucide="file-stack"></i></div>
+            <div class="stat-info">
+              <span class="stat-label">Total Grievances</span>
+              <h3 class="stat-val" id="stat-total-reports">0</h3>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon bg-amber"><i data-lucide="alert-circle"></i></div>
+            <div class="stat-info">
+              <span class="stat-label">Active Grievances</span>
+              <h3 class="stat-val" id="stat-active-reports">0</h3>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon bg-emerald"><i data-lucide="badge-check"></i></div>
+            <div class="stat-info">
+              <span class="stat-label">Resolved Grievances</span>
+              <h3 class="stat-val" id="stat-resolved-reports">0</h3>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon bg-rose"><i data-lucide="timer"></i></div>
+            <div class="stat-info">
+              <span class="stat-label">Average SLA Resolution</span>
+              <h3 class="stat-val" id="stat-avg-sla">0.0 hrs</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-main-grid">
+          
+          <!-- Left: Analytics & ML model -->
+          <div class="dashboard-left">
+            
+            <!-- ML Retraining Card -->
+            <div class="glass-card mb-4">
+              <div class="card-header flex-row justify-between align-center">
+                <div>
+                  <h3>ML Priority & Escalation Predictor</h3>
+                  <p>Escalates grievances based on urgency, category, and historical timeframes.</p>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="retrain-btn">
+                  <i data-lucide="refresh-cw"></i> Retrain Model
+                </button>
+              </div>
+              <div class="ml-metrics">
+                <div class="metric-row">
+                  <span>Model Accuracy</span>
+                  <strong id="model-accuracy">94.8%</strong>
+                </div>
+                <div class="metric-row">
+                  <span>Last Training Cycle</span>
+                  <strong id="model-updated">Just Now</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visualization / Chart Cards -->
+            <div class="glass-card">
+              <div class="card-header">
+                <h3>Uptake & Incident Distributions</h3>
+              </div>
+              <div class="analytics-charts">
+                <!-- Region distribution list -->
+                <div class="chart-section">
+                  <h4>Grievances by Region</h4>
+                  <div class="bar-chart" id="region-bar-chart">
+                    <!-- Dynamic rendering -->
+                  </div>
+                </div>
+                
+                <div class="chart-separator"></div>
+
+                <!-- Scheme uptake simulated distribution list -->
+                <div class="chart-section">
+                  <h4>Estimated Scheme Uptake by Region</h4>
+                  <div class="bar-chart" id="uptake-bar-chart">
+                    <!-- Dynamic rendering -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Action Table -->
+          <div class="dashboard-right">
+            <div class="glass-card full-height flex-column">
+              <div class="card-header flex-row justify-between align-center">
+                <div>
+                  <h3>Grievance Action Queue</h3>
+                  <p>Filter, review, and resolve filed grievances in real time.</p>
+                </div>
+                
+                <div class="table-filters">
+                  <select id="filter-status">
+                    <option value="">All Statuses</option>
+                    <option value="SUBMITTED">Submitted</option>
+                    <option value="UNDER_REVIEW">Under Review</option>
+                    <option value="ESCALATED">Escalated</option>
+                    <option value="RESOLVED">Resolved</option>
+                  </select>
+                  
+                  <select id="filter-category">
+                    <option value="">All Categories</option>
+                    <option value="roads">Roads</option>
+                    <option value="sanitation">Sanitation</option>
+                    <option value="water">Water</option>
+                    <option value="streetlights">Streetlights</option>
+                    <option value="drainage">Drainage</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Grievance queue table -->
+              <div class="table-wrapper flex-grow">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Tracking ID</th>
+                      <th>Category</th>
+                      <th>Region</th>
+                      <th>Description</th>
+                      <th>SLA Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="grievance-table-body">
+                    <!-- Dynamic rows -->
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- CHATBOT CONTAINER -->
+  <div class="chatbot-wrapper" id="chatbot-container">
+    <button class="chatbot-trigger" id="chatbot-toggle-btn">
+      <i data-lucide="message-square" class="chat-open-icon"></i>
+      <i data-lucide="x" class="chat-close-icon hidden"></i>
+      <span class="chat-notification-dot"></span>
+    </button>
+    
+    <div class="chatbot-box hidden" id="chatbot-box">
+      <div class="chatbot-header">
+        <div class="bot-info">
+          <div class="bot-avatar"><i data-lucide="sparkles"></i></div>
+          <div>
+            <h3>NagrikSetu AI</h3>
+            <p>Active Assistant</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chatbot-messages" id="chat-messages-container">
+        <div class="chat-msg bot">
+          <div class="msg-bubble">
+            Hello! I am your NagrikSetu AI Assistant. You can ask me about available welfare schemes or request help filing a civic report. 
+            <br><br>
+            <em>Tip: Try asking: "Show me schemes for farmers" or "My local streetlight is broken".</em>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chatbot-input-panel">
+        <button class="chat-voice-btn" id="chat-voice-btn" title="Hold to record voice">
+          <i data-lucide="mic" id="mic-icon"></i>
+        </button>
+        <input type="text" id="chat-text-input" placeholder="Type your query here...">
+        <button class="chat-send-btn" id="chat-send-btn">
+          <i data-lucide="send"></i>
+        </button>
+      </div>
+
+      <!-- Suggestion pre-fill banner (hidden initially) -->
+      <div class="chatbot-suggestion-banner hidden" id="chat-suggestion-banner">
+        <span>AI suggests pre-filling Grievance Form!</span>
+        <button class="btn btn-secondary btn-sm" id="autofill-apply-btn">Autofill Now</button>
+        <button class="close-btn" id="autofill-close-btn">&times;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anonymous Grievance Success Modal -->
+  <div class="modal-overlay hidden" id="success-modal">
+    <div class="glass-card modal-card">
+      <i data-lucide="check-circle" class="modal-success-icon"></i>
+      <h2>Grievance Filed Anonymously!</h2>
+      <p>Your issue has been reported. Write down or copy the secure tracking ID below to check the resolution status at any time.</p>
+      
+      <div class="tracking-id-copy-box">
+        <span id="modal-tracking-id">NS-XXXX-XX</span>
+        <button class="btn btn-secondary btn-sm" id="copy-id-btn" title="Copy tracking ID">
+          <i data-lucide="copy"></i> Copy
+        </button>
+      </div>
+      
+      <button class="btn btn-primary full-width" id="close-modal-btn">Done</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

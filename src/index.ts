@@ -39,6 +39,19 @@ fastify.register(jwt, {
 fastify.register(fastifyStatic, {
   root: absoluteUploadDir,
   prefix: "/uploads/",
+  decorateReply: false,
+});
+
+// 4. Static files serving for frontend public portal (HTML, CSS, JS)
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+fastify.register(fastifyStatic, {
+  root: path.join(__dirname, "../public"),
+  prefix: "/",
+  decorateReply: false,
 });
 
 // Register Module Routes
