@@ -13,14 +13,14 @@ export async function getEmbedding(text: string, taskType: "RETRIEVAL_QUERY" | "
   }
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${config.GEMINI_API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2:embedContent?key=${config.GEMINI_API_KEY}`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "models/text-embedding-004",
+        model: "models/gemini-embedding-2",
         content: {
           parts: [{ text }],
         },

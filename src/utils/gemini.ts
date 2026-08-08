@@ -9,7 +9,7 @@ async function callGemini(prompt: string, inlineData?: { mimeType: string; data:
   }
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${config.GEMINI_API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${config.GEMINI_API_KEY}`;
     
     const parts: any[] = [];
     if (inlineData) {
