@@ -1,0 +1,74 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Scheme {
+  id                  String   @id @default(uuid())
+  name                String
+  description         String
+  eligibilityCriteria Json     // e.g. { "minAge": 18, "maxAge": 60, "maxIncome": 300000, "genders": ["Female"], "regions": ["Delhi"] }
+  embedding           Float[]  // Dense float vector for semantic rank
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model GrievanceReport {
+  id                  String    @id @default(uuid())
+  trackingId          String    @unique // Readable secure tracking code e.g. NS-1294-XP
+  description         String
+  category            String
+  region              String
+  latitude            Float
+  longitude           Float
+  mediaUrl            String?
+  status              Status    @default(SUBMITTED)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  resolvedAt          DateTime?
+  slaHours            Int       @default(48)
+  escalationRiskScore Float     @default(0.0)
+  escalatedAt         DateTime?
+}
+
+model AdminUser {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  passwordHash String
+  role         Role     @default(MUNICIPAL)
+  region       String?
+  createdAt    DateTime @default(now())
+}
+
+model HistoricalResolution {
+  id          String   @id @default(uuid())
+  category    String
+  region      String
+  slaHours    Int
+  elapsedTime Float
+  isOverdue   Boolean
+  createdAt   DateTime @default(now())
+}
+
+model MLModel {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  weights   Json
+  accuracy  Float
+  updatedAt DateTime @updatedAt
+}
+
+enum Status {
+  SUBMITTED
+  UNDER_REVIEW
+  ESCALATED
+  RESOLVED
+}
+
+enum Role {
+  ADMIN
+  MUNICIPAL
+}
