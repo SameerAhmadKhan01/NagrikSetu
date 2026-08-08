@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const adminDashboardView = document.getElementById("admin-dashboard-view");
   const adminLoginForm = document.getElementById("admin-login-form");
   const loginError = document.getElementById("login-error");
+  const adminLogoutBtn = document.getElementById("admin-logout-btn");
+  const officerUsername = document.getElementById("officer-username");
 
   // Chatbot Elements
   const chatbotToggleBtn = document.getElementById("chatbot-toggle-btn");
@@ -589,6 +591,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function showAdminDashboard() {
     adminLoginBox.classList.add("hidden");
     adminDashboardView.classList.remove("hidden");
+    if (state.adminUser && officerUsername) {
+      officerUsername.textContent = state.adminUser.username;
+    }
     loadDashboardData();
   }
 
@@ -776,5 +781,9 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("admin_token");
     localStorage.removeItem("admin_user");
     checkAdminAuthState();
+  }
+
+  if (adminLogoutBtn) {
+    adminLogoutBtn.addEventListener("click", handleAdminLogout);
   }
 });

@@ -293,6 +293,17 @@
       <!-- Dashboard View (Protected) -->
       <div id="admin-dashboard-view" class="hidden">
         
+        <!-- Dashboard Header Row -->
+        <div class="dashboard-header-row mb-4 flex-row justify-between align-center border-bottom pb-2">
+          <div class="officer-welcome" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.95rem;">
+            <i data-lucide="user-check" style="color: var(--primary-color); width: 18px; height: 18px;"></i>
+            <span>Logged in as: <strong id="officer-username">Officer</strong></span>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="admin-logout-btn">
+            <i data-lucide="log-out"></i> Sign Out / लॉग-आउट
+          </button>
+        </div>
+
         <!-- Dashboard Metrics Cards -->
         <div class="dashboard-stats-grid">
           <div class="stat-card">
