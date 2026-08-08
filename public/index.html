@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NagrikSetu (नागरिकसेतु) - Welfare Scheme Discovery & Civic Reporting</title>
+  <title>NagrikSetu Portal (नागरिकसेतु) - Government of India / भारत सरकार</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,24 +13,43 @@
   
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="dark-theme">
-  <!-- Glow Elements -->
-  <div class="glow glow-1"></div>
-  <div class="glow glow-2"></div>
+<body class="light-theme">
 
-  <!-- Main Navigation -->
+  <!-- Official Tricolor Top Border Banner -->
+  <div class="gov-top-banner">
+    <div class="tricolor-stripe">
+      <div class="stripe-saffron"></div>
+      <div class="stripe-white"></div>
+      <div class="stripe-green"></div>
+    </div>
+    <div class="gov-banner-content">
+      <div class="gov-emblem-section">
+        <i data-lucide="building-2" class="banner-emblem-icon"></i>
+        <span><strong>Government of India</strong> | भारत सरकार</span>
+      </div>
+      <div class="gov-links">
+        <a href="#citizen-portal">Citizen Portal</a>
+        <a href="#admin-portal">Officer Portal</a>
+        <span class="accessibility-text">Bilingual Support (English / हिंदी)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
   <header class="app-header">
     <div class="header-logo">
       <i data-lucide="shield-check" class="logo-icon"></i>
-      <span class="logo-text">Nagrik<span>Setu</span></span>
-      <span class="logo-subtext">नागरिकसेतु</span>
+      <div class="logo-titles">
+        <h1 class="logo-text">Nagrik<span>Setu</span></h1>
+        <span class="logo-subtext">नागरिकसेतु - जन कल्याण एवं शिकायत निवारण पोर्टल</span>
+      </div>
     </div>
     <nav class="nav-tabs">
       <button class="nav-tab active" data-tab="citizen-portal">
-        <i data-lucide="user"></i> Citizen Portal
+        <i data-lucide="user"></i> Citizen Portal / नागरिक पोर्टल
       </button>
       <button class="nav-tab" data-tab="admin-portal" id="admin-nav-btn">
-        <i data-lucide="layout-dashboard"></i> Admin Dashboard
+        <i data-lucide="layout-dashboard"></i> Officer Dashboard / अधिकारी लॉगिन
       </button>
     </nav>
   </header>
@@ -41,51 +60,51 @@
     <section id="citizen-portal" class="tab-panel active">
       <div class="portal-grid">
         
-        <!-- Left: Forms & Discovery -->
+        <!-- Left Column: Search & Reporting Operations -->
         <div class="portal-left">
           
-          <!-- Tab selector for Citizen activities -->
+          <!-- Subtab Selection Box -->
           <div class="sub-tab-container">
             <button class="sub-tab active" data-subtab="scheme-discover-tab">
-              <i data-lucide="sparkles"></i> Match Schemes
+              <i data-lucide="search-code"></i> Discover Welfare Schemes / योजना खोजें
             </button>
             <button class="sub-tab" data-subtab="grievance-report-tab">
-              <i data-lucide="file-text"></i> File Grievance
+              <i data-lucide="edit-3"></i> File Grievance / शिकायत दर्ज करें
             </button>
             <button class="sub-tab" data-subtab="grievance-track-tab">
-              <i data-lucide="search"></i> Track Grievance
+              <i data-lucide="file-search"></i> Track Grievance / शिकायत ट्रैक करें
             </button>
           </div>
 
-          <!-- 1. Scheme Discovery Panel -->
+          <!-- 1. Scheme Discovery Section -->
           <div id="scheme-discover-tab" class="sub-tab-panel active">
-            <div class="glass-card">
+            <div class="gov-card">
               <div class="card-header">
-                <h2>Welfare Scheme Discovery</h2>
-                <p>Provide profile metrics and describe your situation to retrieve matching schemes.</p>
+                <h2>Welfare Scheme Matcher / कल्याणकारी योजना खोजक</h2>
+                <p>Fill out your profile details and specify your needs to find relevant government schemes instantly.</p>
               </div>
               <form id="scheme-form" class="grid-form">
                 <div class="form-group">
-                  <label for="scheme-age">Age (Years)</label>
-                  <input type="number" id="scheme-age" placeholder="e.g. 35" min="0" max="120">
+                  <label for="scheme-age">Age / आयु (in years)</label>
+                  <input type="number" id="scheme-age" placeholder="e.g. 28" min="0" max="120">
                 </div>
                 <div class="form-group">
-                  <label for="scheme-income">Annual Income (INR)</label>
-                  <input type="number" id="scheme-income" placeholder="e.g. 150000" min="0">
+                  <label for="scheme-income">Annual Family Income / वार्षिक आय (₹)</label>
+                  <input type="number" id="scheme-income" placeholder="e.g. 200000" min="0">
                 </div>
                 <div class="form-group">
-                  <label for="scheme-gender">Gender</label>
+                  <label for="scheme-gender">Gender / लिंग</label>
                   <select id="scheme-gender">
-                    <option value="">Select Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
+                    <option value="">Select / चयन करें</option>
+                    <option value="Male">Male / पुरुष</option>
+                    <option value="Female">Female / महिला</option>
+                    <option value="Other">Other / अन्य</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="scheme-region">State/Region</label>
+                  <label for="scheme-region">State/Region / राज्य</label>
                   <select id="scheme-region">
-                    <option value="">Select Region</option>
+                    <option value="">Select / चयन करें</option>
                     <option value="Delhi">Delhi</option>
                     <option value="Maharashtra">Maharashtra</option>
                     <option value="Karnataka">Karnataka</option>
@@ -94,39 +113,39 @@
                   </select>
                 </div>
                 <div class="form-group full-width">
-                  <label for="scheme-situation">Describe Your Situation / Needs</label>
-                  <textarea id="scheme-situation" rows="3" placeholder="e.g., I am a small-scale farmer looking for crop insurance and irrigation support..."></textarea>
+                  <label for="scheme-situation">Describe your situation or requirements / अपनी आवश्यकता का विवरण दें</label>
+                  <textarea id="scheme-situation" rows="3" placeholder="e.g., I want to apply for a minority education scholarship or agrarian subsidy support..."></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary full-width">
-                  <i data-lucide="wand-2"></i> Match Schemes
+                  <i data-lucide="search"></i> Match Schemes / योजनाएं खोजें
                 </button>
               </form>
             </div>
           </div>
 
-          <!-- 2. Grievance Reporting Panel -->
+          <!-- 2. Grievance Reporting Section -->
           <div id="grievance-report-tab" class="sub-tab-panel">
-            <div class="glass-card">
+            <div class="gov-card">
               <div class="card-header">
-                <h2>File Anonymous Grievance</h2>
-                <p>Report municipal issues securely. Your privacy is 100% protected.</p>
+                <h2>File Anonymous Grievance / नागरिक शिकायत दर्ज करें</h2>
+                <p>Submit civic complaints. No registration is required. All submissions are 100% anonymous.</p>
               </div>
               <form id="grievance-form" class="grid-form" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label for="grievance-category">Issue Category</label>
+                  <label for="grievance-category">Issue Category / शिकायत श्रेणी</label>
                   <select id="grievance-category" required>
-                    <option value="">Select Category</option>
-                    <option value="roads">Roads & Potholes</option>
-                    <option value="sanitation">Sanitation & Garbage</option>
-                    <option value="water">Water Supply</option>
-                    <option value="streetlights">Streetlights</option>
-                    <option value="drainage">Drainage Clogging</option>
+                    <option value="">Select / चयन करें</option>
+                    <option value="roads">Roads & Potholes / सड़कें और गड्ढे</option>
+                    <option value="sanitation">Sanitation & Garbage / स्वच्छता और कचरा</option>
+                    <option value="water">Water Supply / पानी की आपूर्ति</option>
+                    <option value="streetlights">Streetlights / स्ट्रीट लाइट</option>
+                    <option value="drainage">Drainage Clogging / जल निकासी रुकावट</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="grievance-region">Region / Ward</label>
+                  <label for="grievance-region">Region or Ward / क्षेत्र या वार्ड</label>
                   <select id="grievance-region" required>
-                    <option value="">Select Region</option>
+                    <option value="">Select / चयन करें</option>
                     <option value="Zone-A">Zone-A</option>
                     <option value="Zone-B">Zone-B</option>
                     <option value="Ward-12">Ward-12</option>
@@ -134,51 +153,54 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label>Location Coordinates</label>
+                  <label>Location Coordinates / स्थान निर्देशांक</label>
                   <div class="coordinate-inputs">
                     <input type="number" id="grievance-lat" step="any" placeholder="Latitude" required>
                     <input type="number" id="grievance-lng" step="any" placeholder="Longitude" required>
                   </div>
                   <button type="button" id="geo-btn" class="btn btn-secondary btn-sm">
-                    <i data-lucide="map-pin"></i> Fetch Geolocation
+                    <i data-lucide="map-pin"></i> Auto Detect Location / स्थान का पता लगाएं
                   </button>
                 </div>
                 <div class="form-group">
-                  <label for="grievance-media">Attach Proof (Photo / Video)</label>
+                  <label for="grievance-media">Upload Photo/Video Proof / प्रमाण अपलोड करें</label>
                   <input type="file" id="grievance-media" accept="image/*,video/*">
-                  <span class="file-help">Max file size: 10MB</span>
+                  <span class="file-help">Supported: JPG, PNG, MP4 (Max size: 10MB)</span>
                 </div>
                 <div class="form-group full-width">
-                  <label for="grievance-desc">Description of the Issue</label>
-                  <textarea id="grievance-desc" rows="3" placeholder="Provide clear details about the civic issue..." required></textarea>
+                  <label for="grievance-desc">Description of the Issue / शिकायत का विस्तृत विवरण</label>
+                  <textarea id="grievance-desc" rows="3" placeholder="Provide details about the issue, location landmarks, etc..." required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary full-width">
-                  <i data-lucide="send"></i> File Grievance Report
+                  <i data-lucide="send"></i> Submit Grievance / शिकायत दर्ज करें
                 </button>
               </form>
             </div>
           </div>
 
-          <!-- 3. Grievance Tracking Panel -->
+          <!-- 3. Grievance Tracking Section -->
           <div id="grievance-track-tab" class="sub-tab-panel">
-            <div class="glass-card">
+            <div class="gov-card">
               <div class="card-header">
-                <h2>Track Grievance Status</h2>
-                <p>Enter your anonymous tracking code to view the status, SLA countdown, and resolution details.</p>
+                <h2>Track Grievance Status / शिकायत निवारण स्थिति</h2>
+                <p>Enter the secure anonymous tracking ID provided during submission to check status.</p>
               </div>
               <div class="tracking-search">
                 <input type="text" id="track-id-input" placeholder="e.g. NS-1294-XP" style="text-transform: uppercase;">
                 <button id="track-btn" class="btn btn-primary">
-                  <i data-lucide="search"></i> Track
+                  <i data-lucide="search"></i> Check Status / स्थिति देखें
                 </button>
               </div>
               
-              <!-- Timeline Container (Hidden initially) -->
+              <!-- Timeline result block -->
               <div id="tracking-result" class="tracking-result hidden">
                 <div class="result-summary">
-                  <span class="tracking-code-badge" id="res-code">NS-XXXX-XX</span>
+                  <div>
+                    <span class="text-muted">Tracking ID:</span>
+                    <span class="tracking-code-badge" id="res-code">NS-XXXX-XX</span>
+                  </div>
                   <div class="sla-counter" id="res-sla-box">
-                    <i data-lucide="clock"></i> <span id="res-sla-text">48h SLA</span>
+                    <i data-lucide="clock"></i> <span id="res-sla-text">SLA active</span>
                   </div>
                 </div>
                 
@@ -186,32 +208,32 @@
                   <div class="timeline-item" id="step-submitted">
                     <div class="timeline-icon"><i data-lucide="file-plus"></i></div>
                     <div class="timeline-content">
-                      <h3>Submitted</h3>
-                      <p>Grievance logged successfully into NagrikSetu.</p>
+                      <h3>Submitted / दर्ज की गई</h3>
+                      <p>The grievance has been registered and logged in the system.</p>
                       <span class="timeline-date" id="date-submitted">-</span>
                     </div>
                   </div>
                   <div class="timeline-item" id="step-review">
                     <div class="timeline-icon"><i data-lucide="eye"></i></div>
                     <div class="timeline-content">
-                      <h3>Under Review</h3>
-                      <p>Municipal team is reviewing the grievance details.</p>
+                      <h3>Under Review / समीक्षा के तहत</h3>
+                      <p>Assigned to the municipal administration officer for initial assessment.</p>
                       <span class="timeline-date" id="date-review">-</span>
                     </div>
                   </div>
                   <div class="timeline-item" id="step-escalated">
                     <div class="timeline-icon"><i data-lucide="alert-triangle"></i></div>
                     <div class="timeline-content">
-                      <h3>Escalated</h3>
-                      <p>SLA breached. Escalated to senior authority via ML Priority Scheduler.</p>
+                      <h3>Escalated / उच्च अधिकारी को प्रेषित</h3>
+                      <p>SLA timeframe breached. Automatically escalated via prioritizer engine.</p>
                       <span class="timeline-date" id="date-escalated">-</span>
                     </div>
                   </div>
                   <div class="timeline-item" id="step-resolved">
                     <div class="timeline-icon"><i data-lucide="check-circle2"></i></div>
                     <div class="timeline-content">
-                      <h3>Resolved</h3>
-                      <p>Grievance has been resolved. Action details below.</p>
+                      <h3>Resolved / समाधान हो गया</h3>
+                      <p>Municipal department has addressed the report. See resolution timestamp below.</p>
                       <span class="timeline-date" id="date-resolved">-</span>
                     </div>
                   </div>
@@ -222,16 +244,16 @@
 
         </div>
 
-        <!-- Right: Results Panel -->
+        <!-- Right Column: Welfare Scheme Results Grid -->
         <div class="portal-right">
-          <div class="glass-card full-height flex-column">
-            <div class="card-header">
-              <h2>Discovery Matches</h2>
+          <div class="gov-card full-height flex-column">
+            <div class="card-header border-bottom">
+              <h2>Matched Welfare Schemes / उपयुक्त सरकारी योजनाएं</h2>
             </div>
             <div class="results-container flex-grow" id="scheme-results">
               <div class="empty-state">
                 <i data-lucide="sparkles" class="empty-icon"></i>
-                <p>Fill out the profile match form and press "Match Schemes" to see personalized welfare options here.</p>
+                <p>Run "Match Schemes" to see eligibility metrics and appropriate welfare programs here.</p>
               </div>
             </div>
           </div>
@@ -240,41 +262,41 @@
       </div>
     </section>
 
-    <!-- ADMIN PORTAL SECTION -->
+    <!-- ADMIN/OFFICER PORTAL SECTION -->
     <section id="admin-portal" class="tab-panel">
       
-      <!-- Login Panel -->
+      <!-- Officer Login Panel -->
       <div id="admin-login-box" class="admin-login-wrapper">
-        <div class="glass-card login-card">
+        <div class="gov-card login-card">
           <div class="card-header text-center">
             <i data-lucide="lock" class="login-header-icon"></i>
-            <h2>Municipal Login</h2>
-            <p>Access the NagrikSetu Officer Dashboard</p>
+            <h2>Officer Portal / अधिकारी लॉग-इन</h2>
+            <p>Access administration controls and incident action lists.</p>
           </div>
           <form id="admin-login-form">
             <div class="form-group">
-              <label for="login-username">Username</label>
+              <label for="login-username">Username / उपयोगकर्ता नाम</label>
               <input type="text" id="login-username" required placeholder="e.g. admin">
             </div>
             <div class="form-group">
-              <label for="login-password">Password</label>
+              <label for="login-password">Password / पासवर्ड</label>
               <input type="password" id="login-password" required placeholder="••••••••">
             </div>
             <button type="submit" class="btn btn-primary full-width">
-              <i data-lucide="log-in"></i> Sign In
+              <i data-lucide="log-in"></i> Sign In / प्रवेश करें
             </button>
             <div id="login-error" class="login-error hidden"></div>
           </form>
         </div>
       </div>
 
-      <!-- Dashboard View (Hidden initially) -->
+      <!-- Dashboard View (Protected) -->
       <div id="admin-dashboard-view" class="hidden">
         
-        <!-- Dashboard Top Stats Grid -->
+        <!-- Dashboard Metrics Cards -->
         <div class="dashboard-stats-grid">
           <div class="stat-card">
-            <div class="stat-icon bg-indigo"><i data-lucide="file-stack"></i></div>
+            <div class="stat-icon bg-navy"><i data-lucide="file-stack"></i></div>
             <div class="stat-info">
               <span class="stat-label">Total Grievances</span>
               <h3 class="stat-val" id="stat-total-reports">0</h3>
@@ -283,21 +305,21 @@
           <div class="stat-card">
             <div class="stat-icon bg-amber"><i data-lucide="alert-circle"></i></div>
             <div class="stat-info">
-              <span class="stat-label">Active Grievances</span>
+              <span class="stat-label">Active / Pending</span>
               <h3 class="stat-val" id="stat-active-reports">0</h3>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-icon bg-emerald"><i data-lucide="badge-check"></i></div>
+            <div class="stat-icon bg-green"><i data-lucide="badge-check"></i></div>
             <div class="stat-info">
-              <span class="stat-label">Resolved Grievances</span>
+              <span class="stat-label">Resolved / Closed</span>
               <h3 class="stat-val" id="stat-resolved-reports">0</h3>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-icon bg-rose"><i data-lucide="timer"></i></div>
+            <div class="stat-icon bg-navy"><i data-lucide="timer"></i></div>
             <div class="stat-info">
-              <span class="stat-label">Average SLA Resolution</span>
+              <span class="stat-label">Avg Resolution Duration</span>
               <h3 class="stat-val" id="stat-avg-sla">0.0 hrs</h3>
             </div>
           </div>
@@ -305,15 +327,15 @@
 
         <div class="dashboard-main-grid">
           
-          <!-- Left: Analytics & ML model -->
+          <!-- Left Dashboard Pane: ML info and distributions -->
           <div class="dashboard-left">
             
-            <!-- ML Retraining Card -->
-            <div class="glass-card mb-4">
-              <div class="card-header flex-row justify-between align-center">
+            <!-- ML prioritizer box -->
+            <div class="gov-card mb-4">
+              <div class="card-header flex-row justify-between align-center border-bottom pb-2">
                 <div>
-                  <h3>ML Priority & Escalation Predictor</h3>
-                  <p>Escalates grievances based on urgency, category, and historical timeframes.</p>
+                  <h3>ML Prioritization Scheduler</h3>
+                  <p>Analyzes incident risk and triggers SLA escalations automatically.</p>
                 </div>
                 <button class="btn btn-secondary btn-sm" id="retrain-btn">
                   <i data-lucide="refresh-cw"></i> Retrain Model
@@ -321,37 +343,35 @@
               </div>
               <div class="ml-metrics">
                 <div class="metric-row">
-                  <span>Model Accuracy</span>
+                  <span>Urgency Accuracy Rate:</span>
                   <strong id="model-accuracy">94.8%</strong>
                 </div>
                 <div class="metric-row">
-                  <span>Last Training Cycle</span>
+                  <span>Last Training Cycle:</span>
                   <strong id="model-updated">Just Now</strong>
                 </div>
               </div>
             </div>
 
-            <!-- Visualization / Chart Cards -->
-            <div class="glass-card">
-              <div class="card-header">
-                <h3>Uptake & Incident Distributions</h3>
+            <!-- Visual Bar Lists -->
+            <div class="gov-card">
+              <div class="card-header border-bottom pb-2">
+                <h3>Incident & Scheme Distributions</h3>
               </div>
-              <div class="analytics-charts">
-                <!-- Region distribution list -->
+              <div class="analytics-charts mt-3">
                 <div class="chart-section">
-                  <h4>Grievances by Region</h4>
+                  <h4>Grievance Counts by Region</h4>
                   <div class="bar-chart" id="region-bar-chart">
-                    <!-- Dynamic rendering -->
+                    <!-- Loaded dynamically -->
                   </div>
                 </div>
                 
                 <div class="chart-separator"></div>
 
-                <!-- Scheme uptake simulated distribution list -->
                 <div class="chart-section">
-                  <h4>Estimated Scheme Uptake by Region</h4>
+                  <h4>Simulated Scheme Uptake Density</h4>
                   <div class="bar-chart" id="uptake-bar-chart">
-                    <!-- Dynamic rendering -->
+                    <!-- Loaded dynamically -->
                   </div>
                 </div>
               </div>
@@ -359,26 +379,26 @@
 
           </div>
 
-          <!-- Right: Action Table -->
+          <!-- Right Dashboard Pane: Main Queues Table -->
           <div class="dashboard-right">
-            <div class="glass-card full-height flex-column">
-              <div class="card-header flex-row justify-between align-center">
+            <div class="gov-card full-height flex-column">
+              <div class="card-header flex-row justify-between align-center border-bottom pb-2">
                 <div>
-                  <h3>Grievance Action Queue</h3>
-                  <p>Filter, review, and resolve filed grievances in real time.</p>
+                  <h3>Grievance Management Queue</h3>
+                  <p>Perform review checks, change active status, or mark issues resolved.</p>
                 </div>
                 
                 <div class="table-filters">
                   <select id="filter-status">
-                    <option value="">All Statuses</option>
-                    <option value="SUBMITTED">Submitted</option>
-                    <option value="UNDER_REVIEW">Under Review</option>
-                    <option value="ESCALATED">Escalated</option>
-                    <option value="RESOLVED">Resolved</option>
+                    <option value="">All Statuses / सभी स्थितियां</option>
+                    <option value="SUBMITTED">Submitted / नई</option>
+                    <option value="UNDER_REVIEW">Under Review / जांच में</option>
+                    <option value="ESCALATED">Escalated / प्रेषित</option>
+                    <option value="RESOLVED">Resolved / पूर्ण</option>
                   </select>
                   
                   <select id="filter-category">
-                    <option value="">All Categories</option>
+                    <option value="">All Categories / सभी श्रेणियां</option>
                     <option value="roads">Roads</option>
                     <option value="sanitation">Sanitation</option>
                     <option value="water">Water</option>
@@ -388,7 +408,7 @@
                 </div>
               </div>
 
-              <!-- Grievance queue table -->
+              <!-- Main action queue -->
               <div class="table-wrapper flex-grow">
                 <table class="data-table">
                   <thead>
@@ -402,7 +422,7 @@
                     </tr>
                   </thead>
                   <tbody id="grievance-table-body">
-                    <!-- Dynamic rows -->
+                    <!-- Injected dynamically -->
                   </tbody>
                 </table>
               </div>
@@ -418,7 +438,7 @@
 
   </main>
 
-  <!-- CHATBOT CONTAINER -->
+  <!-- BI-LINGUAL AI ASSISTANT CHATBOT (Accessibility-friendly placement) -->
   <div class="chatbot-wrapper" id="chatbot-container">
     <button class="chatbot-trigger" id="chatbot-toggle-btn">
       <i data-lucide="message-square" class="chat-open-icon"></i>
@@ -429,10 +449,10 @@
     <div class="chatbot-box hidden" id="chatbot-box">
       <div class="chatbot-header">
         <div class="bot-info">
-          <div class="bot-avatar"><i data-lucide="sparkles"></i></div>
+          <div class="bot-avatar"><i data-lucide="message-circle"></i></div>
           <div>
-            <h3>NagrikSetu AI</h3>
-            <p>Active Assistant</p>
+            <h3>NagrikSetu AI Help / सहायता</h3>
+            <p>Bilingual AI Assistant</p>
           </div>
         </div>
       </div>
@@ -440,38 +460,38 @@
       <div class="chatbot-messages" id="chat-messages-container">
         <div class="chat-msg bot">
           <div class="msg-bubble">
-            Hello! I am your NagrikSetu AI Assistant. You can ask me about available welfare schemes or request help filing a civic report. 
+            नमस्ते! I am your NagrikSetu AI Help Desk. Ask me questions about schemes or report municipal problems.
             <br><br>
-            <em>Tip: Try asking: "Show me schemes for farmers" or "My local streetlight is broken".</em>
+            <em>Example: "Water clogging issue near Zone-A" or "किसान सम्मान निधि योजना"</em>
           </div>
         </div>
       </div>
       
       <div class="chatbot-input-panel">
-        <button class="chat-voice-btn" id="chat-voice-btn" title="Hold to record voice">
+        <button class="chat-voice-btn" id="chat-voice-btn" title="Speak to chatbot / बोलने के लिए होल्ड करें">
           <i data-lucide="mic" id="mic-icon"></i>
         </button>
-        <input type="text" id="chat-text-input" placeholder="Type your query here...">
+        <input type="text" id="chat-text-input" placeholder="Type your query / यहां लिखें...">
         <button class="chat-send-btn" id="chat-send-btn">
           <i data-lucide="send"></i>
         </button>
       </div>
 
-      <!-- Suggestion pre-fill banner (hidden initially) -->
+      <!-- Autofill notification banner -->
       <div class="chatbot-suggestion-banner hidden" id="chat-suggestion-banner">
-        <span>AI suggests pre-filling Grievance Form!</span>
-        <button class="btn btn-secondary btn-sm" id="autofill-apply-btn">Autofill Now</button>
+        <span>Fill Grievance Form? / फॉर्म भरें?</span>
+        <button class="btn btn-secondary btn-sm" id="autofill-apply-btn">Fill Form / हां</button>
         <button class="close-btn" id="autofill-close-btn">&times;</button>
       </div>
     </div>
   </div>
 
-  <!-- Anonymous Grievance Success Modal -->
+  <!-- Anonymous submission success display block (Modal layout) -->
   <div class="modal-overlay hidden" id="success-modal">
-    <div class="glass-card modal-card">
+    <div class="gov-card modal-card">
       <i data-lucide="check-circle" class="modal-success-icon"></i>
-      <h2>Grievance Filed Anonymously!</h2>
-      <p>Your issue has been reported. Write down or copy the secure tracking ID below to check the resolution status at any time.</p>
+      <h2>Grievance Filed / शिकायत दर्ज की गई!</h2>
+      <p>Your civic issue has been logged successfully. Copy and save your anonymous tracking ID below to check resolution progress.</p>
       
       <div class="tracking-id-copy-box">
         <span id="modal-tracking-id">NS-XXXX-XX</span>
@@ -480,7 +500,7 @@
         </button>
       </div>
       
-      <button class="btn btn-primary full-width" id="close-modal-btn">Done</button>
+      <button class="btn btn-primary full-width" id="close-modal-btn">Close / बंद करें</button>
     </div>
   </div>
 
