@@ -203,14 +203,14 @@ export async function adminRoutes(fastify: FastifyInstance) {
 
       const history = await prisma.historicalResolution.findMany();
       const averageResolutionTimeHours = history.length > 0
-        ? history.reduce((sum, h) => sum + h.elapsedTime, 0) / history.length
+        ? history.reduce((sum: number, h: any) => sum + h.elapsedTime, 0) / history.length
         : 0.0;
 
       // Group resolution time by category
       const resolutionTimeByCategory: Record<string, number> = {};
       const categoryCounts: Record<string, { total: number; sum: number }> = {};
       
-      history.forEach((h) => {
+      history.forEach((h: any) => {
         if (!categoryCounts[h.category]) {
           categoryCounts[h.category] = { total: 0, sum: 0 };
         }
@@ -231,7 +231,7 @@ export async function adminRoutes(fastify: FastifyInstance) {
       });
 
       const reportsByRegion: Record<string, number> = {};
-      rawRegions.forEach((r) => {
+      rawRegions.forEach((r: any) => {
         reportsByRegion[r.region] = r._count.id;
       });
 

@@ -31,7 +31,7 @@ export async function retrainModel(): Promise<{
     const categoryCounts: Record<string, { total: number; overdue: number }> = {};
     const regionCounts: Record<string, { total: number; overdue: number }> = {};
 
-    history.forEach((h) => {
+    history.forEach((h: any) => {
       // Category count
       if (!categoryCounts[h.category]) {
         categoryCounts[h.category] = { total: 0, overdue: 0 };

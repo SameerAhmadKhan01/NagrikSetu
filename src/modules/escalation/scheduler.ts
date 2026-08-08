@@ -36,13 +36,13 @@ export async function runEscalationCheck() {
 
     // Score and priority rank the reports (highest risk score escalated first)
     const scoredReports = await Promise.all(
-      breached.map(async (report) => {
+      breached.map(async (report: any) => {
         const score = await predictEscalationRisk(report.category, report.region, report.createdAt);
         return { report, score };
       })
     );
 
-    scoredReports.sort((a, b) => b.score - a.score);
+    scoredReports.sort((a: any, b: any) => b.score - a.score);
 
     // Apply state transitions
     for (const item of scoredReports) {
