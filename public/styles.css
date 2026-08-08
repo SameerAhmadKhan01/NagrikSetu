@@ -40,35 +40,35 @@
 
 /* Dark Theme Variables */
 body.dark-theme {
-  --bg-color: #0b0f19; /* Premium deep blue-black */
-  --surface-color: rgba(17, 24, 39, 0.7); /* Glassmorphic dark surface */
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-focus: #818cf8; /* indigo-400 */
+  --bg-color: #030712; /* Sleek slate-obsidian black */
+  --surface-color: rgba(17, 24, 39, 0.7); /* Deep dark container background */
+  --border-color: rgba(99, 102, 241, 0.18); /* Indigo tinted borders */
+  --border-focus: #a5b4fc; /* indigo-300 */
   
-  --primary-color: #6366f1; /* Indigo accent */
-  --primary-hover: #4f46e5;
+  --primary-color: #818cf8; /* Glowing violet-indigo */
+  --primary-hover: #6366f1;
   
-  --text-main: #f3f4f6; /* gray-100 */
-  --text-muted: #9ca3af; /* gray-400 */
+  --text-main: #f9fafb; /* pure white-gray */
+  --text-muted: #94a3b8; /* clean readable gray-slate */
   
-  --success-color: #10b981; /* emerald-500 */
-  --warning-color: #f59e0b; /* amber-500 */
-  --danger-color: #ef4444; /* red-500 */
+  --success-color: #34d399; /* neon green */
+  --warning-color: #fbbf24; /* neon yellow */
+  --danger-color: #f87171; /* neon red */
 
-  --input-bg: rgba(0, 0, 0, 0.25);
-  --input-border: rgba(255, 255, 255, 0.08);
-  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --input-bg: rgba(9, 12, 22, 0.6); /* deeper input field background */
+  --input-border: rgba(99, 102, 241, 0.2);
+  --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
   --border-style: 1px solid var(--border-color);
-  --glow-opacity: 0.5;
+  --glow-opacity: 0.65; /* more visible glowing background accent */
   
-  --stat-icon-navy: rgba(99, 102, 241, 0.15);
-  --stat-icon-amber: rgba(245, 158, 11, 0.15);
-  --stat-icon-green: rgba(16, 185, 129, 0.15);
+  --stat-icon-navy: rgba(129, 140, 248, 0.15);
+  --stat-icon-amber: rgba(251, 191, 36, 0.15);
+  --stat-icon-green: rgba(52, 211, 153, 0.15);
   
-  --scheme-card-bg: rgba(255, 255, 255, 0.02);
-  --chat-msg-bg: rgba(0, 0, 0, 0.2);
+  --scheme-card-bg: rgba(15, 23, 42, 0.4);
+  --chat-msg-bg: rgba(9, 12, 22, 0.5);
   
-  --backdrop-blur: blur(12px);
+  --backdrop-blur: blur(16px);
 }
 
 /* Base resets & layout */
@@ -1257,4 +1257,108 @@ textarea {
 /* Hiding class helper */
 .hidden {
   display: none !important;
+}
+
+/* Responsive / Mobile Adaptation Styles */
+@media (max-width: 1024px) {
+  .portal-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .dashboard-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .dashboard-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    height: auto !important;
+    flex-direction: column !important;
+    padding: 1.25rem 1rem !important;
+    gap: 1.25rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .logo-titles {
+    align-items: center;
+  }
+
+  .header-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 1rem !important;
+  }
+
+  .nav-tabs {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .nav-tab {
+    flex-grow: 1 !important;
+    justify-content: center !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .app-content {
+    padding: 1rem 0.75rem !important;
+  }
+
+  .sub-tab-container {
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+  }
+
+  .sub-tab {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .grid-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-group.full-width {
+    grid-column: span 1 !important;
+  }
+
+  .btn {
+    width: 100% !important;
+  }
+
+  .gov-card {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .dashboard-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .table-filters {
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-top: 0.5rem;
+  }
+  
+  .table-filters select {
+    width: 100% !important;
+  }
+
+  .table-wrapper {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chatbot-box {
+    width: calc(100vw - 1.5rem) !important;
+    height: 400px !important;
+    bottom: 60px !important;
+    right: -0.25rem !important;
+  }
 }
