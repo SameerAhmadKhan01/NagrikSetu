@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Load Theme Preference
+  const savedTheme = localStorage.getItem("app_theme") || "light-theme";
+  document.body.className = savedTheme;
+  const themeIcon = document.getElementById("theme-icon");
+  if (savedTheme === "dark-theme" && themeIcon) {
+    themeIcon.setAttribute("data-lucide", "sun");
+  }
+
   // Initialize Lucide Icons
   lucide.createIcons();
 
@@ -42,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginError = document.getElementById("login-error");
   const adminLogoutBtn = document.getElementById("admin-logout-btn");
   const officerUsername = document.getElementById("officer-username");
+  const themeToggleBtn = document.getElementById("theme-toggle-btn");
 
   // Chatbot Elements
   const chatbotToggleBtn = document.getElementById("chatbot-toggle-btn");
@@ -785,5 +794,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (adminLogoutBtn) {
     adminLogoutBtn.addEventListener("click", handleAdminLogout);
+  }
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+      const isDark = document.body.classList.contains("dark-theme");
+      if (isDark) {
+        document.body.classList.replace("dark-theme", "light-theme");
+        localStorage.setItem("app_theme", "light-theme");
+        if (themeIcon) themeIcon.setAttribute("data-lucide", "moon");
+      } else {
+        document.body.classList.replace("light-theme", "dark-theme");
+        localStorage.setItem("app_theme", "dark-theme");
+        if (themeIcon) themeIcon.setAttribute("data-lucide", "sun");
+      }
+      lucide.createIcons();
+    });
   }
 });

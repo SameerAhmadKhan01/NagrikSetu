@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="light-theme">
+  <!-- Glow Elements -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
 
   <!-- Official Tricolor Top Border Banner -->
   <div class="gov-top-banner">
@@ -44,14 +47,19 @@
         <span class="logo-subtext">नागरिकसेतु - जन कल्याण एवं शिकायत निवारण पोर्टल</span>
       </div>
     </div>
-    <nav class="nav-tabs">
-      <button class="nav-tab active" data-tab="citizen-portal">
-        <i data-lucide="user"></i> Citizen Portal / नागरिक पोर्टल
+    <div class="header-actions" style="display: flex; align-items: center; gap: 1rem;">
+      <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme / थीम बदलें" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); width: 36px; height: 36px; border-radius: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s ease;">
+        <i data-lucide="moon" id="theme-icon" style="width: 18px; height: 18px;"></i>
       </button>
-      <button class="nav-tab" data-tab="admin-portal" id="admin-nav-btn">
-        <i data-lucide="layout-dashboard"></i> Officer Dashboard / अधिकारी लॉगिन
-      </button>
-    </nav>
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="citizen-portal">
+          <i data-lucide="user"></i> Citizen Portal / नागरिक पोर्टल
+        </button>
+        <button class="nav-tab" data-tab="admin-portal" id="admin-nav-btn">
+          <i data-lucide="layout-dashboard"></i> Officer Dashboard / अधिकारी लॉगिन
+        </button>
+      </nav>
+    </div>
   </header>
 
   <main class="app-content">

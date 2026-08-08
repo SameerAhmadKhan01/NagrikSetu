@@ -1,5 +1,12 @@
-/* High-Contrast Government Portal Theme Tokens */
+/* High-Contrast & Premium Theme Tokens */
 :root {
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --header-height: 75px;
+  
+  --saffron-color: #ff9933; /* Tricolor Saffron */
+  --green-color: #138808; /* Tricolor Green */
+  
+  /* Light Theme Variables (Default) */
   --bg-color: #f1f5f9; /* slate-100 */
   --surface-color: #ffffff;
   --border-color: #cbd5e1; /* slate-300 */
@@ -11,14 +18,57 @@
   --text-main: #0f172a; /* slate-900 */
   --text-muted: #475569; /* slate-600 */
   
-  --saffron-color: #ff9933; /* Tricolor Saffron */
-  --green-color: #138808; /* Tricolor Green */
   --success-color: #15803d; /* green-700 */
   --warning-color: #b45309; /* amber-700 */
   --danger-color: #b91c1c; /* red-700 */
 
-  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --header-height: 75px;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  --border-style: 1px solid var(--border-color);
+  --glow-opacity: 0;
+  
+  --stat-icon-navy: #0b2e5c;
+  --stat-icon-amber: #d97706;
+  --stat-icon-green: #15803d;
+  
+  --scheme-card-bg: #ffffff;
+  --chat-msg-bg: #f8fafc;
+  
+  --backdrop-blur: none;
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+  --bg-color: #0b0f19; /* Premium deep blue-black */
+  --surface-color: rgba(17, 24, 39, 0.7); /* Glassmorphic dark surface */
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-focus: #818cf8; /* indigo-400 */
+  
+  --primary-color: #6366f1; /* Indigo accent */
+  --primary-hover: #4f46e5;
+  
+  --text-main: #f3f4f6; /* gray-100 */
+  --text-muted: #9ca3af; /* gray-400 */
+  
+  --success-color: #10b981; /* emerald-500 */
+  --warning-color: #f59e0b; /* amber-500 */
+  --danger-color: #ef4444; /* red-500 */
+
+  --input-bg: rgba(0, 0, 0, 0.25);
+  --input-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --border-style: 1px solid var(--border-color);
+  --glow-opacity: 0.5;
+  
+  --stat-icon-navy: rgba(99, 102, 241, 0.15);
+  --stat-icon-amber: rgba(245, 158, 11, 0.15);
+  --stat-icon-green: rgba(16, 185, 129, 0.15);
+  
+  --scheme-card-bg: rgba(255, 255, 255, 0.02);
+  --chat-msg-bg: rgba(0, 0, 0, 0.2);
+  
+  --backdrop-blur: blur(12px);
 }
 
 /* Base resets & layout */
@@ -35,12 +85,43 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glow Background Orlays */
+.glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(150px);
+  z-index: -1;
+  opacity: var(--glow-opacity);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.glow-1 {
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+}
+
+.glow-2 {
+  bottom: 10%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0) 70%);
 }
 
 /* Government Official Top Banner */
 .gov-top-banner {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
+  background-color: var(--surface-color);
+  border-bottom: var(--border-style);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .tricolor-stripe {
@@ -96,7 +177,7 @@ body {
 .accessibility-text {
   font-weight: 600;
   color: var(--primary-color);
-  border-left: 1px solid #cbd5e1;
+  border-left: var(--border-style);
   padding-left: 1.5rem;
 }
 
@@ -108,10 +189,13 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid var(--primary-color);
-  background-color: #ffffff;
+  background-color: var(--surface-color);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .header-logo {
@@ -134,7 +218,7 @@ body {
 .logo-text {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-main);
   letter-spacing: -0.5px;
 }
 
@@ -177,7 +261,7 @@ body {
 
 .nav-tab:hover {
   color: var(--primary-color);
-  background-color: #f8fafc;
+  background-color: var(--bg-color);
 }
 
 .nav-tab.active {
@@ -214,10 +298,13 @@ body {
 /* Solid Flat Government Card */
 .gov-card {
   background: var(--surface-color);
-  border: 1px solid var(--border-color);
+  border: var(--border-style);
   border-radius: 6px;
   padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gov-card.full-height {
@@ -231,7 +318,7 @@ body {
 }
 
 .card-header.border-bottom {
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid var(--border-color);
   padding-bottom: 0.75rem;
 }
 
@@ -260,10 +347,13 @@ body {
   display: flex;
   gap: 0.25rem;
   margin-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-color);
-  background-color: #ffffff;
+  border-bottom: var(--border-style);
+  background-color: var(--surface-color);
   padding: 0.25rem;
   border-radius: 6px;
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  transition: background-color 0.3s ease;
 }
 
 .sub-tab {
@@ -279,6 +369,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  transition: background-color 0.15s ease;
 }
 
 .sub-tab i {
@@ -288,12 +379,12 @@ body {
 
 .sub-tab:hover {
   color: var(--primary-color);
-  background-color: #f1f5f9;
+  background-color: var(--bg-color);
 }
 
 .sub-tab.active {
   color: var(--primary-color);
-  background-color: #e2e8f0;
+  background-color: var(--bg-color);
 }
 
 .sub-tab-panel {
@@ -328,20 +419,21 @@ label {
 }
 
 input, select, textarea {
-  background-color: #ffffff;
-  border: 1px solid #94a3b8; /* slate-400 */
+  background-color: var(--input-bg);
+  border: var(--border-style);
   color: var(--text-main);
   padding: 0.65rem 0.85rem;
   border-radius: 4px;
   font-family: inherit;
   font-size: 0.85rem;
   width: 100%;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(11, 46, 92, 0.15);
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
 }
 
 textarea {
@@ -372,6 +464,7 @@ textarea {
   justify-content: center;
   gap: 0.5rem;
   border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-primary {
@@ -384,13 +477,13 @@ textarea {
 }
 
 .btn-secondary {
-  background-color: #ffffff;
-  border: 1px solid #94a3b8;
+  background-color: var(--surface-color);
+  border: var(--border-style);
   color: var(--text-main);
 }
 
 .btn-secondary:hover {
-  background-color: #f8fafc;
+  background-color: var(--bg-color);
 }
 
 .btn-sm {
@@ -431,7 +524,7 @@ textarea {
 .empty-icon {
   width: 40px;
   height: 40px;
-  color: #cbd5e1;
+  color: var(--border-color);
 }
 
 /* Welfare Scheme Discovery result card */
@@ -445,11 +538,12 @@ textarea {
 }
 
 .scheme-match-card {
-  background-color: #ffffff;
-  border: 1px solid var(--border-color);
+  background-color: var(--scheme-card-bg);
+  border: var(--border-style);
   border-left: 4px solid var(--primary-color);
   border-radius: 4px;
   padding: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .scheme-card-top {
@@ -467,9 +561,9 @@ textarea {
 }
 
 .match-score-badge {
-  background-color: #e2f0d9;
+  background-color: rgba(16, 185, 129, 0.15);
   color: var(--success-color);
-  border: 1px solid #c5e0b4;
+  border: 1px solid rgba(16, 185, 129, 0.25);
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.15rem 0.4rem;
@@ -492,14 +586,15 @@ textarea {
 
 .criteria-pill {
   font-size: 0.7rem;
-  background-color: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  background-color: var(--bg-color);
+  border: var(--border-style);
   color: var(--text-main);
   padding: 0.2rem 0.5rem;
   border-radius: 2px;
   display: flex;
   align-items: center;
   gap: 0.2rem;
+  transition: background-color 0.3s ease;
 }
 
 .criteria-pill i {
@@ -525,11 +620,12 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f8fafc;
-  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  border: var(--border-style);
   padding: 0.6rem 0.85rem;
   border-radius: 4px;
   margin-bottom: 1.25rem;
+  transition: background-color 0.3s ease;
 }
 
 .tracking-code-badge {
@@ -537,11 +633,12 @@ textarea {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--primary-color);
-  background-color: #f1f5f9;
-  border: 1px solid #cbd5e1;
+  background-color: var(--bg-color);
+  border: var(--border-style);
   padding: 0.15rem 0.4rem;
   border-radius: 2px;
   letter-spacing: 0.5px;
+  transition: background-color 0.3s ease;
 }
 
 .sla-counter {
@@ -575,7 +672,7 @@ textarea {
   top: 8px;
   bottom: 8px;
   width: 2px;
-  background-color: #cbd5e1;
+  background-color: var(--border-color);
   z-index: 1;
 }
 
@@ -595,18 +692,19 @@ textarea {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #ffffff;
-  border: 2px solid #cbd5e1;
+  background-color: var(--surface-color);
+  border: 2px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .timeline-icon i {
   width: 10px;
   height: 10px;
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .timeline-item.active .timeline-icon {
@@ -685,19 +783,23 @@ textarea {
   right: 0;
   width: 350px;
   height: 460px;
-  background: #ffffff;
+  background: var(--surface-color);
   border: 2px solid var(--primary-color);
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .chatbot-header {
   padding: 0.85rem;
   background-color: var(--primary-color);
   color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
 .bot-info {
@@ -752,7 +854,8 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  background-color: #f8fafc;
+  background-color: var(--chat-msg-bg);
+  transition: background-color 0.3s ease;
 }
 
 .chat-msg {
@@ -772,16 +875,18 @@ textarea {
 }
 
 .chat-msg.bot .msg-bubble {
-  background-color: #ffffff;
-  border: 1px solid #cbd5e1;
+  background-color: var(--surface-color);
+  border: var(--border-style);
   color: var(--text-main);
   border-top-left-radius: 1px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .chat-msg.user .msg-bubble {
   background-color: var(--primary-color);
   color: #ffffff;
   border-top-right-radius: 1px;
+  transition: background-color 0.3s ease;
 }
 
 .chatbot-input-panel {
@@ -789,15 +894,16 @@ textarea {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background-color: #ffffff;
-  border-top: 1px solid #e2e8f0;
+  background-color: var(--surface-color);
+  border-top: var(--border-style);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .chatbot-input-panel input {
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   font-size: 0.8rem;
-  border: 1px solid #cbd5e1;
+  border: var(--border-style);
 }
 
 .chat-send-btn, .chat-voice-btn {
@@ -822,13 +928,13 @@ textarea {
 }
 
 .chat-voice-btn.recording {
-  background-color: #fee2e2;
+  background-color: rgba(239, 68, 68, 0.15);
   border-radius: 50%;
 }
 
 .chatbot-suggestion-banner {
-  background-color: #eff6ff;
-  border-top: 1px solid #bfdbfe;
+  background-color: rgba(99, 102, 241, 0.1);
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
   padding: 0.4rem 0.85rem;
   display: flex;
   justify-content: space-between;
@@ -850,12 +956,14 @@ textarea {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 42, 0.4);
+  background-color: rgba(15, 23, 42, 0.6);
   z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
 }
 
 .modal-card {
@@ -894,8 +1002,8 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
+  background-color: var(--bg-color);
+  border: var(--border-style);
   padding: 0.6rem 1rem;
   border-radius: 4px;
   width: 100%;
@@ -931,8 +1039,8 @@ textarea {
   margin-top: 0.75rem;
   font-size: 0.75rem;
   color: var(--danger-color);
-  background-color: #fef2f2;
-  border: 1px solid #fee2e2;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.15);
   padding: 0.5rem;
   border-radius: 4px;
   text-align: center;
@@ -948,7 +1056,7 @@ textarea {
 
 .stat-card {
   background: var(--surface-color);
-  border: 1px solid var(--border-color);
+  border: var(--border-style);
   border-radius: 6px;
   padding: 1rem 1.25rem;
   display: flex;
@@ -971,9 +1079,9 @@ textarea {
   height: 18px;
 }
 
-.stat-icon.bg-navy { background-color: var(--primary-color); }
-.stat-icon.bg-amber { background-color: #d97706; }
-.stat-icon.bg-green { background-color: var(--success-color); }
+.stat-icon.bg-navy { background-color: var(--stat-icon-navy); color: var(--primary-color); }
+.stat-icon.bg-amber { background-color: var(--stat-icon-amber); color: var(--warning-color); }
+.stat-icon.bg-green { background-color: var(--stat-icon-green); color: var(--success-color); }
 
 .stat-info { display: flex; flex-direction: column; }
 .stat-label { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); }
@@ -990,8 +1098,8 @@ textarea {
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 0.75rem;
-  background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
+  background-color: var(--bg-color);
+  border: var(--border-style);
   padding: 0.75rem;
   border-radius: 4px;
 }
@@ -1049,11 +1157,11 @@ textarea {
 
 .chart-bar-container {
   flex-grow: 1;
-  background-color: #f1f5f9;
+  background-color: var(--bg-color);
   height: 10px;
   border-radius: 2px;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
+  border: var(--border-style);
 }
 
 .chart-bar-fill {
@@ -1089,14 +1197,14 @@ textarea {
 }
 
 .data-table th {
-  background-color: #f8fafc;
+  background-color: var(--bg-color);
   font-weight: 700;
   color: var(--text-muted);
-  border-top: 1px solid var(--border-color);
+  border-top: var(--border-style);
 }
 
 .data-table tbody tr:hover {
-  background-color: #f8fafc;
+  background-color: var(--bg-color);
 }
 
 .table-filters {
@@ -1109,7 +1217,7 @@ textarea {
   padding: 0.35rem 0.75rem;
   border-radius: 4px;
   width: auto;
-  border: 1px solid #cbd5e1;
+  border: var(--border-style);
 }
 
 /* Flat Status Badges */
@@ -1123,10 +1231,10 @@ textarea {
   border: 1px solid transparent;
 }
 
-.status-pill.submitted { background-color: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
-.status-pill.under_review { background-color: #fffbeb; color: #92400e; border-color: #fde68a; }
-.status-pill.escalated { background-color: #fef2f2; color: #991b1b; border-color: #fecaca; }
-.status-pill.resolved { background-color: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+.status-pill.submitted { background-color: rgba(99, 102, 241, 0.15); color: #818cf8; border-color: rgba(99, 102, 241, 0.25); }
+.status-pill.under_review { background-color: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.25); }
+.status-pill.escalated { background-color: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.25); }
+.status-pill.resolved { background-color: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.25); }
 
 .sla-status-label {
   font-weight: 700;
