@@ -1,6 +1,10 @@
 # 🌐 NagrikSetu Backend API
 > **Community Platform for Welfare-Scheme Access & Transparent Grievance Redressal**
 
+Deployed link: https://nagriksetu-d6bz.onrender.com/
+
+Video Demo:https://drive.google.com/file/d/1oN2P36DsT7zSJPtSzYM1FAzdXJsS--lE/view?pli=1
+
 NagrikSetu is a high-performance backend system designed to bridge the gap between citizens and local authorities. It provides:
 1. **Welfare-Scheme Matching Engine**: A dual-layer system (deterministic eligibility filters + ML-driven semantic similarity search) mapping citizens' situations to government schemes.
 2. **Transparent Grievance Redressal**: An anonymous reporting system with secure status tracking and a background ML classifier that predicts SLA breach risks to auto-escalate urgent issues.
