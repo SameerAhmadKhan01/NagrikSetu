@@ -1,7 +1,8 @@
 # 🌐 NagrikSetu Backend API
 > **Community Platform for Welfare-Scheme Access & Transparent Grievance Redressal**
 
-Deployed link: https://nagriksetu-d6bz.onrender.com/\n
+Deployed link: https://nagriksetu-d6bz.onrender.com/
+
 Video Demo:https://drive.google.com/file/d/1oN2P36DsT7zSJPtSzYM1FAzdXJsS--lE/view?pli=1
 
 NagrikSetu is a high-performance backend system designed to bridge the gap between citizens and local authorities. It provides:
